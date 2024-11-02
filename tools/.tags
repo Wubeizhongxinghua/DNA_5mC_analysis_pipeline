@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+argparse	cal_covered_genome.py	/^import argparse$/;"	i
+contains_three_or_more_special_sequences	remove_3CH_readpairs.py	/^def contains_three_or_more_special_sequences(read, flag):$/;"	f
+contains_three_or_more_special_sequences	remove_3CH_reads.py	/^def contains_three_or_more_special_sequences(read, is_reverse):$/;"	f
+filtered_reads	cal_covered_genome.py	/^def filtered_reads(file1,outname_prx):$/;"	f
+install	remove_3CH_readpairs.py	/^from rich.traceback import install$/;"	i
+install	remove_3CH_reads.py	/^from rich.traceback import install$/;"	i
+options	cal_covered_genome.py	/^    options = parser.parse_args()$/;"	v
+parser	cal_covered_genome.py	/^    parser = argparse.ArgumentParser(description="get mutation rates for m6A_new")$/;"	v
+pd	cal_covered_genome.py	/^import pandas as pd$/;"	i
+pretty	remove_3CH_readpairs.py	/^from rich import print, pretty$/;"	i
+pretty	remove_3CH_reads.py	/^from rich import print, pretty$/;"	i
+print	remove_3CH_readpairs.py	/^from rich import print, pretty$/;"	i
+print	remove_3CH_reads.py	/^from rich import print, pretty$/;"	i
+pysam	remove_3CH_readpairs.py	/^import pysam$/;"	i
+pysam	remove_3CH_reads.py	/^import pysam$/;"	i
+re	cal_covered_genome.py	/^import re$/;"	i
+read_pair_generator	remove_3CH_readpairs.py	/^def read_pair_generator(bam):$/;"	f
+subprocess	cal_covered_genome.py	/^import subprocess$/;"	i
+sys	cal_covered_genome.py	/^import sys$/;"	i
+sys	remove_3CH_readpairs.py	/^import sys$/;"	i
+sys	remove_3CH_reads.py	/^import sys$/;"	i
+time	cal_covered_genome.py	/^import time$/;"	i
