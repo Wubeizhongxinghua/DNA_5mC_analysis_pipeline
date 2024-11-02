@@ -23,6 +23,7 @@ Here, the dataset name is `example_dataset`, where there is one sample called `e
 4. Collect all the sample names into a .txt file, named using the dataset name. Put the file into `./sample_id`
 
 ```
+.
 ├── sample_id
 │   └── example_dataset.txt
 ```
