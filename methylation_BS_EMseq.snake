@@ -72,4 +72,4 @@ rule all:
 	input:
 		gen_all_input()
 
-include: "EM_seq_pipeline.py"
+include: "main_pipeline.py"

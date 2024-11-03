@@ -8,8 +8,8 @@ This pipeline is a convenient pipeline for analyzing BS-seq **paired-end** data 
 
 - Get the BS-seq QC result by `fastqc`, and alignment to `lambda DNA`, `pUC19`.
 - Get the **clean** alignment result by filtering by:
-	- MAPQ≥60
-	- Reads with more than 3 non `CA` or `CC` or `CT` (for reads with flag 99, 147) or more than 3 non `GA` or `GG` or `GT` (for reads with flag 83, 163) are recognized as non fully converted and will be removed.
+	- MAPQ≥60 (bwa alignment)
+	- Reads with more than 3 `CA` or `CC` or `CT` (for reads with flag 99, 147) or more than 3 `GA` or `GG` or `GT` (for reads with flag 83, 163) are recognized as non fully converted and will be removed.
 - Get the result of these statistic results:
 	- Insert size result. (`{sample}_size_matrics.txt`)
 	- Clean and alignment read number result. (`{sample}.clean.num.txt` for clean-alignment and `{sample}_sort_reads.txt` for all alignment)
