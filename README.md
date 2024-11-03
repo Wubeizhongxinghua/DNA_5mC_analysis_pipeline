@@ -20,11 +20,11 @@ This pipeline is a convenient pipeline for analyzing BS-seq **paired-end** data 
 
 ## **Deployment and Setup**
 
-### 1. Clone this repo.
+##### 1. Clone this repo.
 
-### 2. Navigate to the repo. dir.: `cd DNA_5mC_analysis_pipeline`
+##### 2. Navigate to the repo. dir.: `cd DNA_5mC_analysis_pipeline`
 
-### 3. Put your dataset directory to `./data`, where the name of dataset directory is your dataset name. Inside the directory, all data files are named like `samplename_1.fq.gz` and `samplename_2.fq.gz`
+##### 3. Put your dataset directory to `./data`, where the name of dataset directory is your dataset name. Inside the directory, all data files are named like `samplename_1.fq.gz` and `samplename_2.fq.gz`
 
 ```
 .
@@ -36,7 +36,7 @@ This pipeline is a convenient pipeline for analyzing BS-seq **paired-end** data 
 
 Here, the dataset name is `example_dataset`, where there is one sample called `example_sample`.
 
-### 4. Collect all the sample names into a .txt file, named using the dataset name. Put the file into `./sample_id`
+##### 4. Collect all the sample names into a .txt file, named using the dataset name. Put the file into `./sample_id`
 
 ```
 .
@@ -59,7 +59,7 @@ example_sample2	healthy	age32
 ```
 - There should not be any header of the file.
 
-### 5. Edit the `methylation_BS_EMseq.snake` for settings
+##### 5. Edit the `methylation_BS_EMseq.snake` for settings
 
 - Edit the `genome_dir` to the dir. of your genome.
 - Edit the `genome_fasta_file_name` to the genome fasta file name, which must be inside the `genome_dir` dir.
@@ -71,7 +71,7 @@ example_sample2	healthy	age32
 	- If you want the all analysis pipeline conducted for the dataset **except alignment to lambda DNA**, add the name into `datasets_nolambda`.
 	- If you want the all analysis pipeline conducted for the dataset **except alignment to lambda DNA and pUC19**, add the name into `datasets_noBSQC`.
 
-### 6. Install all python requirements and softwares
+##### 6. Install all python requirements and softwares
 
 - Softwares
 	- `snakmeake` (Only tested using snakemake 7.32.3. Not sure whether snakemake 8 is suitable or not.)
@@ -89,10 +89,10 @@ example_sample2	healthy	age32
 	- `rich`
 	- `toolshed` (required by [bwameth](https://github.com/brentp/bwa-meth))
 
-### 7. Test your pipeline
+##### 7. Test your pipeline
 
 ```shell
 snakemake -s methylation_BS_EMseq.snake --dry-run --rerun-triggers mtime -pr 
 ```
 
-### 8. If everything works, then you can run the pipeline
+##### 8. If everything works, then you can run the pipeline
