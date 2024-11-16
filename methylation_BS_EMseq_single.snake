@@ -51,9 +51,9 @@ def gen_all_input():
 			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.bam.bai")
 			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.bam.stat")
 			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.num.txt")
-			if dataset not in datasets_nopUC19 or dataset not in datasets_noBSQC:
+			if dataset not in datasets_nopUC19 and dataset not in datasets_noBSQC:
 				all_inputs.append(f'output/{dataset}/bismark_results_pU19/{sample_id}_trimmed_bismark_bt2_SE_report.txt')
-			if dataset not in datasets_nolambda or dataset not in datasets_noBSQC:
+			if dataset not in datasets_nolambda and dataset not in datasets_noBSQC:
 				all_inputs.append(f"output/{dataset}/bismark_results_lamda/{sample_id}_trimmed_bismark_bt2_SE_report.txt")
 			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}_CpG.bedGraph")
 			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}_totalbeta.txt")
