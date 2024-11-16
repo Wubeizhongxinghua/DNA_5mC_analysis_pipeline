@@ -50,7 +50,7 @@ cat sample_id/example_dataset.txt
 # return: example_sample
 ```
 
-The format of the .txt file should satisfy:
+The format of the `sample_id/{datasetname}.txt` file should meet the following rules:
 - Each row is a sample name.
 - You can add other metadata of the sample, like its group or sth. in the sample row with **delim \t**. Like:
 ```

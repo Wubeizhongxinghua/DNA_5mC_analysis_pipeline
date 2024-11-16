@@ -1,0 +1,70 @@
+
+# Script Name: methylation_BS_EMseq.snake
+
+# This pipeline, writen by Li Mingyang, is used for processing BS-seq / EM-seq data (instead of RRBS, targeted, amplicon, etc).
+
+# Copyright (c) 2024 by Li Mingyang, Peking University
+
+# Email: limingyang@stu.pku.edu.cn or limingyang200101@gmail.com
+
+###### Required dirs ######
+# ./sample_id -- store all the sample name information corresponding to file names of .fq.gz
+# ./lambda -- lambda genome
+# ./output -- output file
+# ./data -- data dir with directory named {dataset} and .fq.gz files in it.
+# ./tools
+#   picard.jar
+#   methyldackel.sh
+#   cal_coverd_genome.py
+
+
+## Config information.
+genome_dir = "/your/dir/to/hg38" #including reference genome and index files for bwameth # hg38 fasta file must set name: hg38.fa
+genome_fasta_file_name = 'hg38.fa'
+lamda_dir = "/your/dir/to/lambda" # bismark index
+pU19_dir = "/your/dir/to/pU19" # bismark index
+
+datasets_all = []
+datasets_nopUC19 = []
+datasets_nolambda = []
+datasets_noBSQC = []
+
+
+
+datasets = datasets_all + datasets_nopUC19 + datasets_nolambda + datasets_noBSQC
+
+sample_ids_by_dataset = {}
+for dataset in datasets:
+	sample_ids_by_dataset[dataset] = [line.strip().split('\t')[0] for line in open(f"sample_id/{dataset}.txt")]
+
+
+# Now, we shall begin.
+
+def gen_all_input():
+	all_inputs = []
+	for dataset in datasets:
+		for sample_id in sample_ids_by_dataset[dataset]:
+			all_inputs.append(f"output/{dataset}/trim/{sample_id}_trimmed_fastqc.html")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.bam")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}_cover_genome_covered.info")
+			all_inputs.append(f"output/{dataset}/bwameth_results/{sample_id}_sort_reads.txt")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.bam.bai")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.bam.stat")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}.clean.num.txt")
+			if dataset not in datasets_nopUC19 or dataset not in datasets_noBSQC:
+				all_inputs.append(f'output/{dataset}/bismark_results_pU19/{sample_id}_trimmed_bismark_bt2_SE_report.txt')
+			if dataset not in datasets_nolambda or dataset not in datasets_noBSQC:
+				all_inputs.append(f"output/{dataset}/bismark_results_lamda/{sample_id}_trimmed_bismark_bt2_SE_report.txt")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}_CpG.bedGraph")
+			all_inputs.append(f"output/{dataset}/bwameth_results/bam_rmdup/{sample_id}_totalbeta.txt")
+	
+	return all_inputs
+
+
+
+
+rule all:
+	input:
+		gen_all_input()
+
+include: "main_pipeline_single.py"
