@@ -5,7 +5,7 @@ Author: Li Mingyang (limingyang200101@gmail.com)
 
 Institute: AAIS, Peking University
 
-File Name: /gpfs3/chengqiyi_pkuhpc/limingyang/nipt/tools/check_read_paired.py
+File Name: /gpfs3/chengqiyi_pkuhpc/limingyang/model/tools/check_read_paired.py
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
