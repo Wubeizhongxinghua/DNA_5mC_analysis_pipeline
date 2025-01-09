@@ -6,4 +6,4 @@ threads=$4
 
 
 cd ${workdir} && \
-		 MethylDackel extract -@ $threads -q 60 --opref ${sample} $genome ${sample}.clean.bam
+		 MethylDackel extract -@ $threads -q 60 --mergeContext --opref ${sample} $genome ${sample}.clean.bam
