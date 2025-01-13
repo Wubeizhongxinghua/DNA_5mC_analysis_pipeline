@@ -30,7 +30,7 @@ def contains_three_or_more_special_sequences(read, is_reverse):
 		sequences = ['CC', 'CT', 'CA']
 		total_count = sum(read.query_sequence.count(seq) for seq in sequences)
 	else: # -
-		sequences_rev = ['GG', 'GA', 'GT']
+		sequences_rev = ['GG', 'AG', 'TG']
 		total_count = sum(read.query_sequence.count(seq) for seq in sequences_rev) 
 	return total_count >= 3
 
